@@ -16,6 +16,10 @@ class Router {
         
         foreach(self::${strtolower($_SERVER['REQUEST_METHOD'])} as $page){
             if($page[0] === $currentURL){
+                if(isset($page[2]) && $page[2] === "user" && ! user()){
+                    go("/", "로그인해 주세요.");
+                }
+
                 $action = explode("@", $page[1]);
                 $conName = "Controller\\{$action[0]}";
                 $con = new $conName();

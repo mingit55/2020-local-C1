@@ -19,6 +19,7 @@ function back($message = ""){
     echo "history.back();";
     if($message !== "") echo "alert('$message');";
     echo "</script>";
+    exit;
 }
 
 function go($url, $message = ""){
@@ -26,6 +27,7 @@ function go($url, $message = ""){
     echo "location.href = '$url';";
     if($message !== "") echo "alert('$message');";
     echo "</script>";
+    exit;
 }
 
 function user(){
