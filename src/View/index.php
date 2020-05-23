@@ -122,7 +122,7 @@
         </div>
     </div>
     <div class="text-center mt-5">
-        <button class="read-more">더보기</button>
+        <button class="read-more" onclick="location.href='/online-housing'">더보기</button>
     </div>
 </div>
 <!-- / 온라인 집들이 영역 -->

@@ -18,4 +18,8 @@ class MainController {
 
         view("store", [], $import);
     }
+
+    function housingPage(){
+        view("online-housing");
+    }
 }

@@ -10,6 +10,13 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <?= $import ?>
+    <script>
+        $(function(){
+            $(".custom-file-input").on("change", function(){
+                $(this).siblings("label").text(this.files[0].name);
+            });
+        });
+    </script>
 </head>
 <body>
     <!-- 헤더 영역 -->
@@ -21,14 +28,19 @@
                 </a>
                 <nav class="d-none d-lg-flex">
                     <div class="nav-item"><a href="/">홈</a></div>
-                    <div class="nav-item"><a href="/#">온라인 집들이</a></div>
+                    <div class="nav-item"><a href="/online-housing">온라인 집들이</a></div>
                     <div class="nav-item"><a href="/store">스토어</a></div>
                     <div class="nav-item"><a href="/#">전문가</a></div>
                     <div class="nav-item"><a href="/#">시공 견적</a></div>
                 </nav>
                 <div class="auth d-none d-lg-flex">
+                    <?php if(!user()):?>
                     <div class="auth-item"><a href="/#" data-target="#sign-in" data-toggle="modal">로그인</a></div>
                     <div class="auth-item"><a href="/#" data-target="#sign-up" data-toggle="modal">회원가입</a></div> 
+                    <?php else :?>
+                        <span class="fx-n2 mr-3"><?=user()->user_name?>(<?=user()->user_id?>)</span>
+                        <a href="/logout" class="fx-n2">로그아웃</a>
+                    <?php endif;?>
                 </div>
                 <div class="menu d-lg-none">
                     <span></span>
@@ -38,13 +50,18 @@
                 <div class="menu-box">
                     <div class="d-flex flex-column py-1">
                         <a class="py-2 pl-5 border-bottom" href="/">홈</a>
-                        <a class="py-2 pl-5 border-bottom" href="/#">온라인 집들이</a>
+                        <a class="py-2 pl-5 border-bottom" href="/online-housing">온라인 집들이</a>
                         <a class="py-2 pl-5 border-bottom" href="/store">스토어</a>
                         <a class="py-2 pl-5 border-bottom" href="/#">전문가</a>
                         <a class="py-2 pl-5 border-bottom" href="/#">시공 견적</a>
                         <div class="pl-5 py-2 text-muted">
-                            <a class="fx-n2 pr-3" href="/#" data-target="#sign-in" data-toggle="modal">로그인</a>
-                            <a class="fx-n2" href="/#" data-target="#sign-up" data-toggle="modal">회원가입</a>
+                            <?php if(!user()): ?>
+                                <a class="fx-n2 pr-3" href="/#" data-target="#sign-in" data-toggle="modal">로그인</a>
+                                <a class="fx-n2" href="/#" data-target="#sign-up" data-toggle="modal">회원가입</a>
+                            <?php else : ?>
+                                <span class="fx-n2 pr-3"><?=user()->user_name?>(<?=user()->user_id?>)</span>
+                                <a class="fx-n2" href="/logout">로그아웃</a>
+                            <?php endif;?>
                         </div>
                     </div>
                 </div>
@@ -75,9 +92,11 @@
                     </div>
                     <div class="form-group">
                         <label for="photo">사진</label>
-                        <div class="custom-file">
-                            <label for="photo" class="custom-file-label"></label>
-                            <input type="file" id="photo" class="custom-file-input" name="photo" accept="image/*">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" id="photo" class="custom-file-input" name="photo" accept="image/*" aria-describedby="File">
+                                <label for="photo" class="custom-file-label">파일을 선택하세요</label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">

@@ -69,7 +69,7 @@ p { line-height: 1.5em; }
     .fx-sm-n4 { font-size: 0.8em; }   
 }
 
-/* 테두리 버튼 */
+/* 더보기 버튼 */
 
 .read-more {
     padding: 1em 3.5em;
@@ -86,7 +86,29 @@ p { line-height: 1.5em; }
     color: #fff;
 }
 
-/* / 테두리 버튼 */
+/* / 더보기 버튼 */
+
+/* 테두리 있는 버튼 */
+
+.border-btn {
+    padding: 0.5em 1em;
+    border: 1px solid #555;
+    color: #555;
+    background-color: transparent;
+}
+
+/* / 테두리 있는 버튼 */
+
+/* 빨강 버튼 */
+
+.red-btn {
+    padding: 0.5em 1em;
+    border: none;
+    color: #fff;
+    background-color: #ea2a2a;
+}
+
+/* / 빨강 버튼 */
 
 
 /* 헤더 영역 */
