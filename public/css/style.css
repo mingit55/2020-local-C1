@@ -12,7 +12,7 @@ p { line-height: 1.5em; word-break: keep-all; }
 
 .segoe { font-family: "Segoe UI", sans-serif; }
 
-
+.full-height { height: calc(100vh - 142px) }
 .text-red { color: #ea2a2a; }
 .text-yellow { color: #ffce07; }
 

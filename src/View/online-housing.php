@@ -1,8 +1,8 @@
 <!-- 온라인 하우징 -->
-<div class="container padding">
+<div class="container py-5">
     <div class="py-3 mb-5 border-bottom">
         <div class="text-center mb-n4">
-            <strong class="fx-4">온라인 집들이</strong>
+            <strong class="fx-4 text-red">온라인 집들이</strong>
             <p class="mt-3 fx-n2 text-muted">다양한 사람들의 인테리어 노하우를 만나보세요</p>
         </div>
         <div class="text-right">

@@ -2,7 +2,7 @@
 <div class="container py-5">
     <div class="py-3 mb-5 border-bottom">
         <div class="text-center">
-            <strong class="fx-4">전문가 목록</strong>
+            <strong class="fx-4 text-red">전문가 목록</strong>
             <p class="mt-3 fx-n2 text-muted">당신의 인테리어를 책임질 전문적인 시공사</p>
         </div>
     </div>
@@ -44,7 +44,7 @@
 <div class="review-table container py-5">
     <div class="border-bottom">
         <div class="text-center mb-4">
-            <strong class="fx-4">리뷰 목록</strong>
+            <strong class="fx-4 text-red">리뷰 목록</strong>
         </div>
         <div class="review-table-head">
             <div class="image">이미지</div>

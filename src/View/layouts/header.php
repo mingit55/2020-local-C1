@@ -18,7 +18,7 @@
         });
     </script>
 </head>
-<body class="vh-100 d-flex flex-column">
+<body>
     <!-- 헤더 영역 -->
     <header>
         <div class="container h-100">
@@ -38,8 +38,8 @@
                     <div class="auth-item"><a href="/#" data-target="#sign-in" data-toggle="modal">로그인</a></div>
                     <div class="auth-item"><a href="/#" data-target="#sign-up" data-toggle="modal">회원가입</a></div> 
                     <?php else :?>
-                        <span class="fx-n2 mr-3"><?=user()->user_name?>(<?=user()->user_id?>)</span>
-                        <a href="/logout" class="fx-n2">로그아웃</a>
+                        <span class="fx-n2 text-muted mr-3"><?=user()->user_name?>(<?=user()->user_id?>)</span>
+                        <a href="/logout" class="fx-n2 text-muted">로그아웃</a>
                     <?php endif;?>
                 </div>
                 <div class="menu d-lg-none">

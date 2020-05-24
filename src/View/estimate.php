@@ -1,9 +1,9 @@
 <!-- 시공 견적 요청 -->
-<div class="estimate container py-5">
+<div class="estimate container full-height py-5">
     <div class="sticky-top bg-white py-3">
         <div class="position-relative text-right mb-4">
             <div class="position-center">
-                <strong class="fx-4">시공 견적 요청</strong>
+                <strong class="fx-4 text-red">시공 견적 요청</strong>
             </div>
             <button class="border-btn" data-toggle="modal" data-target="#request-modal">견적 요청</button>
         </div>
@@ -51,7 +51,7 @@
 <div class="estimate container py-5">
     <div class="sticky-top bg-white py-3">
         <div class="text-center mb-4">
-            <strong class="fx-4">시공 견적 요청</strong>
+            <strong class="fx-4 text-red">보낸 견적 리스트</strong>
         </div>
         <div class="estimate-head">
             <div class="writer">요청인</div>

@@ -35,7 +35,7 @@
     <div class="v-text position-center">
         <div class="text-white text-center">
             <div class="fx-3">나만의 인테리어를 실현하다</div>
-            <div class="fx-9 fx-sm-7 segoe font-weight-lighter nowrap">Modern Interior</div>
+            <div class="fx-9 fx-sm-7 segoe font-weight-lighter nowrap">Decorate My House</div>
         </div>
     </div>
 </div>
@@ -43,8 +43,11 @@
 <!-- 온라인 집들이 영역 -->
 <div class="container padding">
     <div class="text-center">
-        <div class="fx-6 font-weight-bold">Online Housing</div>
-        <div class="mt-2">자신만의 인테리어 노하우를 공유하는 공간</div>
+        <div class="fx-6 segoe">
+            <strong>Online</strong>
+            <span class="font-weight-lighter">Housing</span>
+        </div>
+        <div class="mt-3 text-muted">자신만의 인테리어 노하우를 공유하는 공간</div>
     </div>
     <hr class="mt-5">
     <div class="row mt-5">
@@ -130,7 +133,10 @@
 <div class="bg-pale-white">
     <div class="container padding">
         <div class="text-center">
-            <div class="fx-6 font-weight-bold">Professional Builder</div>
+            <div class="fx-6 font-weight-bold segoe">
+                <strong>Professional</strong>
+                <span class="font-weight-lighter">Builder</span>
+            </div>
             <div class="mt-2">전문적인 시공사에게 나만의 인테리어 시공을 맡겨보세요</div>
         </div> 
         <hr class="mt-5">
@@ -213,7 +219,7 @@
             </div>
         </div>
         <div class="text-center mt-5">
-            <button class="read-more">더보기</button>
+            <button class="read-more" onclick="location.href='/professional-builder'">더보기</button>
         </div>
     </div>
 </div>
@@ -221,7 +227,10 @@
 <!-- 전문가 시공 후기 영역 -->
 <div class="container padding">
     <div class="text-center">
-        <div class="fx-6 font-weight-bold">Review</div>
+        <div class="fx-6 segoe">
+            <strong>Construction</strong>
+            <span class="font-weight-lighter">Review</span>
+        </div>
         <div class="mt-2">실제 사용자들의 시공 후기를 확인할 수 있습니다
 
         </div>
@@ -298,7 +307,7 @@
         </div>
     </div>
     <div class="text-center mt-5">
-        <button class="read-more">더보기</button>
+        <button class="read-more" onclick="location.href='/professional-builder'">더보기</button>
     </div>
 </div>
 <!-- / 전문가 시공 후기 영역 -->
