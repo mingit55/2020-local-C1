@@ -53,3 +53,9 @@ function checkInput(){
         if(trim($input) === "") back("모든 정보를 기입해 주세요");
     }
 }
+
+function json_response($message, $result = true, $extend = []){
+    header("Content-Type: application/json");
+    echo json_encode(array_merge($extend, ["message" => $message, "result" => $result]));
+    exit;
+}
