@@ -18,7 +18,7 @@
         });
     </script>
 </head>
-<body>
+<body class="vh-100 d-flex flex-column">
     <!-- 헤더 영역 -->
     <header>
         <div class="container h-100">
@@ -30,8 +30,8 @@
                     <div class="nav-item"><a href="/">홈</a></div>
                     <div class="nav-item"><a href="/online-housing">온라인 집들이</a></div>
                     <div class="nav-item"><a href="/store">스토어</a></div>
-                    <div class="nav-item"><a href="/#">전문가</a></div>
-                    <div class="nav-item"><a href="/#">시공 견적</a></div>
+                    <div class="nav-item"><a href="/professional-builder">전문가</a></div>
+                    <div class="nav-item"><a href="/estimate">시공 견적</a></div>
                 </nav>
                 <div class="auth d-none d-lg-flex">
                     <?php if(!user()):?>
@@ -52,8 +52,8 @@
                         <a class="py-2 pl-5 border-bottom" href="/">홈</a>
                         <a class="py-2 pl-5 border-bottom" href="/online-housing">온라인 집들이</a>
                         <a class="py-2 pl-5 border-bottom" href="/store">스토어</a>
-                        <a class="py-2 pl-5 border-bottom" href="/#">전문가</a>
-                        <a class="py-2 pl-5 border-bottom" href="/#">시공 견적</a>
+                        <a class="py-2 pl-5 border-bottom" href="/professional-builder">전문가</a>
+                        <a class="py-2 pl-5 border-bottom" href="/estimate">시공 견적</a>
                         <div class="pl-5 py-2 text-muted">
                             <?php if(!user()): ?>
                                 <a class="fx-n2 pr-3" href="/#" data-target="#sign-in" data-toggle="modal">로그인</a>

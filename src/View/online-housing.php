@@ -1,8 +1,9 @@
 <!-- 온라인 하우징 -->
 <div class="container padding">
-    <div class="sticky-top text-center py-3 mb-5 border-bottom">
-        <div class="mb-n4">
-            <span class="fx-6 font-weight-bold">Online Housing</span>
+    <div class="py-3 mb-5 border-bottom">
+        <div class="text-center mb-n4">
+            <strong class="fx-4">온라인 집들이</strong>
+            <p class="mt-3 fx-n2 text-muted">다양한 사람들의 인테리어 노하우를 만나보세요</p>
         </div>
         <div class="text-right">
             <button class="border-btn" data-toggle="modal" data-target="#write-modal">
@@ -13,7 +14,7 @@
     </div>
     <div class="row">
         <?php foreach($knowhows as $knowhow):?>
-            <div class="col-lg-4">
+            <div class="col-lg-4 mb-4">
                 <div id="knowhow-<?=$knowhow->id?>" class="housing-item border">
                     <div class="image">
                         <img src="/upload/knowhow/<?=$knowhow->before_img?>" alt="인테리어 이미지" title="인테리어 이미지">
@@ -26,29 +27,23 @@
                                 <span class="fx-n3 text-muted ml-1"><?= date("Y년 m월 d일", strtotime($knowhow->created_at)) ?></span>
                             </div>
                             <div class="text-red score-star">
-                                <?php if($knowhow->scoreCount == 0): ?>
+                                <?php for($i = 0; $i < ($knowhow->scoreCount == 0 ? 0 : (int)($knowhow->scoreTotal / $knowhow->scoreCount)); $i++): ?>
+                                    <i class="fa fa-star"></i>  
+                                <?php endfor;?>
+                                <?php for(; $i < 5; $i ++): ?>
                                     <i class="fa fa-star-o"></i>  
-                                    <i class="fa fa-star-o"></i>  
-                                    <i class="fa fa-star-o"></i>  
-                                    <i class="fa fa-star-o"></i>  
-                                    <i class="fa fa-star-o"></i>  
-                                <?php else: ?>
-                                    <?php for($i = 0; $i < (int)($knowhow->scoreTotal / $knowhow->scoreCount); $i++): ?>
-                                        <i class="fa fa-star"></i>  
-                                    <?php endfor;?>
-                                    <?php for(; $i < 5; $i ++): ?>
-                                        <i class="fa fa-star-o"></i>  
-                                    <?php endfor;?>
-                                <?php endif;?>
+                                <?php endfor;?>
                             </div>
                         </div>
                         <div class="mt-2">
                             <p><?=$knowhow->content?></p>
                         </div>
+                        <?php if(array_search($knowhow->id, $myReview) === false && $knowhow->uid != user()->id):?>
                         <div class="mt-5 d-flex justify-content-between align-items-center">
                             <small class="text-muted">이 게시글의 평점은?</small>
                             <button class="score-btn red-btn fx-n1" data-id="<?=$knowhow->id?>">평점 주기</button>
                         </div>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>
@@ -154,7 +149,6 @@
             score = parseInt($(this).data("value"));
             
             $.post("/knowhows/score", {kid, score}, res => {
-                alert(res.message);
                 if(res.result){
                     let html = "";
                     let score = Math.floor(res.total / res.count);
@@ -169,6 +163,10 @@
 
                     $(`#knowhow-${kid} .score-star`).html(html);
                     $("#score-modal").modal('hide');
+
+                    $(".score-btn[data-id='"+kid+"']").parent().remove();
+                } else {
+                    alert(res.message);
                 }
             });
         });

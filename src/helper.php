@@ -48,9 +48,12 @@ function view($pageName, $data = [], $import = ""){
     }
 }
 
-function checkInput(){
+function checkInput($resJSON = false){
     foreach($_POST as $input) {
-        if(trim($input) === "") back("모든 정보를 기입해 주세요");
+        if(trim($input) === "") {
+            if($resJSON) json_response("모든 정보를 기입해 주세요", false);
+            else back("모든 정보를 기입해 주세요");
+        }
     }
 }
 

@@ -8,7 +8,7 @@
 }
 a, a:hover { text-decoration: none; color: inherit; }
 a, button, label { cursor: pointer; }
-p { line-height: 1.5em; }
+p { line-height: 1.5em; word-break: keep-all; }
 
 .segoe { font-family: "Segoe UI", sans-serif; }
 
@@ -109,17 +109,6 @@ p { line-height: 1.5em; }
 }
 
 /* / 빨강 버튼 */
-
-/* 테두리 빨간 버튼 */
-
-.red-border-btn {
-    padding: 0.5em 1em;
-    border: 1px solid #ea2a2a;
-    color: #ea2a2a;
-    background-color: transparent;
-}
-
-/* / 테두리 빨간 버튼 */
 
 
 /* 헤더 영역 */
@@ -228,7 +217,7 @@ header .menu-box {
     top: 70px;
     width: 300px;
     height: 100%;
-    z-index: 100;
+    z-index: 1500;
     background-color: #f8f8f8;
     border-left: 1px solid #eee;
     transition: 0.5s;
@@ -271,9 +260,6 @@ header .menu:hover ~ .menu-box {
     background-position: center center;
     filter: brightness(50%);
 }
-/* .v-images .image-1 { background-image: url(../images/slides/1.jpg) } */
-/* .v-images .image-2 { background-image: url(../images/slides/2.jpg) } */
-/* .v-images .image-3 { background-image: url(../images/slides/3.jpg) } */
 .v-images img { width: 100%; height: 100%; object-fit: cover; }
 
 .visual .button-box {
@@ -664,3 +650,56 @@ footer { background-color: #333; }
 
 
 /* / 스토어 */
+
+/* 전문가 페이지 */
+.review-table-head,
+.review-table-item {
+    display: flex; 
+    align-items: center; 
+    text-align: center;
+}
+.review-table-head {
+    height: 50px;
+    color: #555;
+}
+.review-table-item {
+    padding: 1.5em 0; 
+    min-height: 100px; 
+}
+.review-table-item:not(:last-child) { border-bottom: 1px solid #eee; }
+
+.review-table-item img { width: 100px; height: 100px; object-fit: cover; }
+.review-table .image { flex: 0 0 120px; max-width: 120px; }
+.review-table .content { flex: 0 0 50%; max-width: 50%; }
+.review-table .price, .review-table .writer, .review-table .score {
+    flex: 0 0 calc((50% - 120px) / 3);
+    max-width: calc((50% - 120px) / 3);
+}
+
+/* / 전문가 페이지 */
+
+/* 시공 견적 페이지 */
+.estimate-head, .estimate-item {
+    display: flex; align-items: center;
+}
+.estimate-head {
+    height: 50px;
+    border-bottom: 1px solid #888;
+    text-align: center;
+    font-weight: bold;
+}
+
+.estimate-item {
+    min-height: 100px;
+    text-align: center;
+    padding: 0.8em 0;
+    color: #666;
+}
+.estimate-item:not(:last-child) { border-bottom: 1px solid #ddd; }
+
+.estimate .start_date, .estimate .writer { flex: 0 0 15%; max-width: 15%; }
+.estimate .content { flex: 0 0 40%; max-width: 40%; }
+.estimate .status, .estimate .count, .estimate .etc { flex: 0 0 10%; max-width: 10%; }
+
+
+/* / 시공 견적 페이지 */

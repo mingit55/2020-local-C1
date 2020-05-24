@@ -22,9 +22,21 @@ class MainController {
     }
 
     function housingPage(){
-        $knowhows = DB::fetchAll("SELECT K.*, U.user_name, U.user_id FROM knowhows K, users U WHERE K.uid = U.id");
+        $scores = "SELECT COUNT(*) scoreCount, SUM(score) scoreTotal, kid FROM knowhow_reviews GROUP BY kid";
 
-        view("online-housing", ["knowhows" => $knowhows]);
+        $sql = "SELECT K.*, U.user_name, U.user_id, ifnull(S.scoreCount, 0) scoreCount, ifnull(S.scoreTotal, 0) scoreTotal
+                FROM users U, knowhows K
+                LEFT JOIN ($scores) S
+                ON S.kid = K.id
+                WHERE K.uid = U.id";
+        $knowhows = DB::fetchAll($sql);
+
+        $_myReview = DB::fetchAll("SELECT kid FROM knowhow_reviews WHERE uid = ?", [user()->id]);
+        $myReview = [];
+        foreach($_myReview as $review)
+            $myReview[] = $review->kid;
+        
+        view("online-housing", ["knowhows" => $knowhows, "myReview" => $myReview]);
     }
 
     function writeKnowhow(){
@@ -53,7 +65,7 @@ class MainController {
     }
 
     function giveScore(){
-        checkInput();
+        checkInput(true);
         extract($_POST);
 
         $find = DB::find("knowhows", $kid);
@@ -63,11 +75,10 @@ class MainController {
             json_response("올바른 값을 입력하세요", false);
         }
 
-        $total = $find->scoreTotal + $score;
-        $count = $find->scoreCount + 1;
+        DB::query("INSERT INTO knowhow_reviews(uid, kid, score) VALUES(?, ?, ?)", [user()->id, $kid, $score]);
 
-        DB::query("UPDATE knowhows SET scoreCount = ?, scoreTotal = ? WHERE id = ?", [$count, $total, $find->id]);
+        $updated = DB::fetch("SELECT COUNT(*) count, SUM(score) total FROM knowhow_reviews WHERE kid = ? GROUP BY kid", [$kid]);
 
-        json_response("평점이 갱신되었습니다.", true, ["total" => $total, "count" => $count]);
+        json_response("평점이 갱신되었습니다.", true, ["total" => $updated->total, "count" => $updated->count]);
     }
 }

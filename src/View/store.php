@@ -3,7 +3,7 @@
         <div class="container padding pb-5">
             <div class="sticky-top bg-white text-center text-lg-left py-2">
                 <div class="mb-3">
-                    <span class="fx-6 font-weight-light text-red">장바구니</span>
+                    <span class="fx-5 font-weight-light text-red">장바구니</span>
                 </div>
                 <div class="cart-head d-flex text-center text-muted border-bottom py-3">
                     <div class="image">이미지</div>
@@ -42,7 +42,7 @@
         <div class="container padding pt-5">
             <div class="sticky-top bg-white row justify-content-between align-items-end border-bottom mb-5 py-3">
                 <div class="col-lg-7 col-12 text-center text-lg-left mb-4 mb-lg-0">
-                    <span class="fx-6 font-weight-light text-red">스토어</span>
+                    <span class="fx-5 font-weight-light text-red">스토어</span>
                 </div>
                 <div class="col-lg-5 col-12 d-flex align-items-end">
                     <div class="search">
